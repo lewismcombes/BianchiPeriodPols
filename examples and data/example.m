@@ -41,7 +41,9 @@ else
   HNF:=[HNF_basis(J): J in HP];
   ParallelSort(~HNF,~HP);
 
+  print "finding Hecke matrices...";
   HH,HHB:=GetHeckeMatrices(W,HP);
+  print "finding eigenvalue systems...";
   EV_systems,pol_vals:=GetPolVals(W,HH,HP);
 
   EV_systems;
@@ -62,7 +64,6 @@ r_F2:=VecToPol(W,irr_pols[Index([u[3][1] : u in EV_systems | IsIsomorphic(Parent
 
 // creates the H2 space
 H2,m:=H2quo(W`spec);
-
 // we only need one hecke operator to split up the space
 HH3:=H2Hecke(W`spec,H2,m,HP[1]);
 
@@ -98,7 +99,8 @@ F2Pair:=PairPol(weight,r_F2,v_F2)*ZF / (ScalePol(weight,r_F2) * ScalePol(weight,
 print "(Norm of numerator of) Pairing of r_F2 and v_F2:", Factorization(Integers()!Numerator(Norm(F2Pair)));
 
 
-// for the eiseinstein-geuine-cusp congruence, we note the following:
+// for the eiseinstein-geuine-cusp congruences, we note the following:
+print "(Norm of) Denominator of leading coeff of Delta:", Factorization(Numerator(Norm(ScalePol(weight,r_Delta))));
 print "(Norm of) Denominator of leading coeff of F1:", Factorization(Numerator(Norm(ScalePol(weight,r_F1))));
 
 
