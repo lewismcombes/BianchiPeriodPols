@@ -19,6 +19,7 @@ chi:=1;
 type:="GL";
 
 
+print "computing space of period polynomials...";
 time W:=PolSpace(d,level,weight,char,type,chi);
 
 K:=W`field;
@@ -40,9 +41,12 @@ else
   HNF:=[HNF_basis(J): J in HP];
   ParallelSort(~HNF,~HP);
 
+  print "computing Hecke matrices...";
   HH,HHB:=GetHeckeMatrices(W,HP);
+  print "computing eigenvalue systems and algebraic eigen-polynomials...";
   EV_systems,pol_vals:=GetPolVals(W,HH,HP);
 
+  print "found the following eigenvalue systems:";
   EV_systems;
 end if;
 

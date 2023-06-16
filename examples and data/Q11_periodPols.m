@@ -5,7 +5,8 @@
 // L-values and congruences.
 
 _<x>:=PolynomialRing(Rationals());
-F<a>:=NumberField(x^4 + 3725*x^2 + 3448449);
+FF<a>:=NumberField(x^4 + 3725*x^2 + 3448449);
+ZFF:=MaximalOrder(FF);
 
 
 // the Eisenstein series E_12

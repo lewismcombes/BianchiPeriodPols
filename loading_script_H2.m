@@ -43,7 +43,7 @@ spec:=rec<SpecData | d:=d,
 
 
 
-
+print "computing H2...";
 time H2,m:=H2quo(spec);
 
 
@@ -64,6 +64,7 @@ else
   end for;
   print "finding eigenvalue systems...";
   EV_systems:=GET_EV(HH);
+  print "found the following eigenvalue systems:";
   print EV_systems;
 end if;
 
