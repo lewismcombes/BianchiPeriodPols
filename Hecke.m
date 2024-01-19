@@ -142,7 +142,7 @@ GetHeckeMatrices:=function(W,list)
     Append(~HHB,TB);
   end for;
 
-  return HH,HHB;
+  return [ChangeRing(u,W`field) : u in HH],HHB;
 
 end function;
 
@@ -150,9 +150,8 @@ end function;
 //
 // Given a list of commuting matrices (coming in our case from Hecke operators),
 // returns the simultaneous eigenvalues of the matrices, as well as their field of
-// definition and their multiplicities. Uses Wiese's ArtinAlgebras.
-// can sometimes take a long time to run, if there are eigenvalues in a large degree field.
-// this is partly because it is not written with efficiency in mind.
+// definition and their multiplicities. Uses Gabor's ArtinAlgebras.
+// can sometimes take a long time to run, if there are eigenvalues in a large degree field
 //
 GET_EV:=function(list)
 
@@ -239,7 +238,7 @@ GenEigVecs:=function(W,HH,vals)
   d:=vals[2]; // dimension of the space we want
   e:=vals[3];
 
-  FF:=SplittingField(ChangeRing(vals[1],CoefficientRing(W`space)));
+  FF:=SplittingField(vals[1]);
   HHe:=[ChangeRing(HH[i],FF) : i in [1..#HH]];
   SP:= [ChangeRing(HH[i],Parent(e[i]))-e[i]*ChangeRing(HH[i]^0,Parent(e[i])) : i in [1..#HHe]];
 
@@ -247,7 +246,7 @@ GenEigVecs:=function(W,HH,vals)
   for M in SP do
     M1:=M;
     i:=1;
-    while Rank(M1) gt (n-d) or i lt 100 do
+    while Rank(M1) gt (n-d) or i lt 30 do
       M1*:=M;
       i+:=1; // just in case
     end while;
@@ -265,7 +264,9 @@ end function;
 //
 // Given Hecke matrices HH and their associated primes HP, returns vectors of W
 // along with their Hecke eigenvalues at the primes in HP, and the generators of
-// the primes in HP. This uses Wiese's ArtinAlgebras
+// the primes in HP. This function still has some problems, I think in the pol_vals
+// stage of computation. The extracting of the simultaneous eigenvectors should all
+// work correctly, both in char 0 and char p. This uses Gabor's ArtinAlgebras
 //
 GetPolVals:=function(W,HH,HP)
 
