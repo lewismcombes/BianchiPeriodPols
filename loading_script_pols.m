@@ -9,14 +9,14 @@ load "Hecke.m";
 load "PeriodPols.m";
 
 
-d:=11;
+d:=1;
 
-level:=[1,0];
-weight:=[10, 10, 0, 0];
+level:=[4,-7];
+weight:=[0,0, 0, 0];
 char:=0;
 HB:=30;
 chi:=1;
-type:="GL";
+type:="SL";
 
 
 print "computing space of period polynomials...";

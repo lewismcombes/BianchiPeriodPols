@@ -9,12 +9,12 @@ load "Hecke.m";
 load "H2.m";
 
 
-d:=11;
+d:=1;
 
-level:=[1,0];
-weight:=[10, 10, 0, 0];
+level:=[1,-7];
+weight:=[0, 0, 0, 0];
 HB:=30;
-chi:=1;
+chi:=11;
 
 K:=QuadFld(d);
 ZK:=MaximalOrder(K);
@@ -30,7 +30,8 @@ SpecData:= recformat <
   chi               : GrpDrchNFElt,
   PL                : SetIndx,
   r                 : UserProgram,
-  field             : FldNum >;
+  char_field        : FldNum,
+  field        : FldNum >;
 
 
 spec:=rec<SpecData | d:=d,
@@ -39,7 +40,8 @@ spec:=rec<SpecData | d:=d,
                      chi:=chi,
                      PL:=PL,
                      r:=r,
-                     field:=Compositum(Codomain(chi),K) >;
+                     char_field:=Compositum(Codomain(chi),K),
+                     field:=K >;
 
 
 
