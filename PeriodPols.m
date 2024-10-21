@@ -10,7 +10,6 @@ PeriodPol:=function(W,vec : ind:=W`id_index)
   if not assigned ind then
     ind:=W`id_index;
   end if;
-  
   weight:=W`weight;
   k:=weight[1];
   l:=weight[2];
@@ -21,15 +20,7 @@ PeriodPol:=function(W,vec : ind:=W`id_index)
   coeffs:=[vec[D*(ind-1)+i] : i in [1..D]];
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   M:=Matrix(R,k+1,l+1,coeffs); //turns the coeffs into a k+1-by-l+1 matrix, which is more pleasant to look at
-=======
-  M:=Matrix(R,k+1,l+1,coeffs); //turns the coeffs into a k+1-by-l+1 matrix, which is more pleasant to look at 
->>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
-=======
-  M:=Matrix(R,k+1,l+1,coeffs); //turns the coeffs into a k+1-by-l+1 matrix, which is more pleasant to look at
->>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
   return M;
 
 
@@ -139,15 +130,7 @@ ScalePol:=function(weight,pol)
   pol2:=pol - MonomialCoefficient(pol,first_mon)*first_mon - MonomialCoefficient(pol,last_mon)*last_mon;
 
   coeffs:=Coefficients(pol2);
-<<<<<<< HEAD
-<<<<<<< HEAD
   ideals :=[ideal<ZF|coeffs[i]> : i in [1..#coeffs]];
-=======
-  ideals :=[coeffs[i]*ZF : i in [1..#coeffs]];
->>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
-=======
-  ideals :=[ideal<ZF|coeffs[i]> : i in [1..#coeffs]];
->>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
   D1:=GCD(ideals[1],ideals[2]);
   for i in [3..#ideals] do
     D1:=GCD(D1,ideals[i]);

@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 
 // finds the smallest field over which a given matrix has all its eigenvalues 
 // used when the matrix is defined over some number field 
 SmallestFieldNF:=function(mat)
   F:=BaseRing(mat);
-  Q,m:=sub< F|[F!1] >;
+  Q,m:=sub<F|[F!1]>;
   S:=Subfields(F) cat [<QNF(),m>];
   pol:=CharacteristicPolynomial(mat);
 
@@ -102,8 +101,6 @@ MakeHeckeFieldSmall:=function(list : Optimize:=false)
 end function;
 
 
-=======
->>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 //
 // Haluk's code for computing Heilbronn matrices
 // previously used magma's QuadraticField functionality
@@ -143,13 +140,13 @@ Heilbronn:=function(J,level)
 
 
           if IsPrime(q) then
-	       for  s in [0..q-1]  do
-		 x1 := pi; x2 := -s;  y1 := 0 ; y2 := 1;
-		 Append(~List, [x1,x2, y1, y2]);
+         for  s in [0..q-1]  do
+     x1 := pi; x2 := -s;  y1 := 0 ; y2 := 1;
+     Append(~List, [x1,x2, y1, y2]);
 
                  a:=-pi; b:=s;
 
-		 while b ne 0 do
+     while b ne 0 do
                         r:= a mod b;
                         q:= O! ((a-r) / b);
                         x3:= -x1+q*x2;
@@ -157,21 +154,21 @@ Heilbronn:=function(J,level)
                         y3 := -y1+q*y2;
                         y1 := y2;  y2 := y3;
 
-			Append(~List,[ x1, x2, y1, y2]);
+      Append(~List,[ x1, x2, y1, y2]);
 
                         a:=-b; b:=r;
-	          end while;
+            end while;
                end for;
                Append(~List, [1, 0, 0,  pi]);
           else
                p:=PrimeDivisors(q)[1];
                for  s,t in [0..p-1]  do
-		  x1 := pi; x2 := -(s+t*w);  y1 := 0 ; y2 := 1;
-		  Append(~List, [x1,x2, y1, y2]);
+      x1 := pi; x2 := -(s+t*w);  y1 := 0 ; y2 := 1;
+      Append(~List, [x1,x2, y1, y2]);
 
                   a:=(-pi); b:=(s+t*w);
 
-		  while b ne 0 do
+      while b ne 0 do
                         r:= a mod b;
                         q:= O! ((a-r) / b);
                         x3:= -x1+q*x2;
@@ -179,10 +176,10 @@ Heilbronn:=function(J,level)
                         y3 := -y1+q*y2;
                         y1 := y2;  y2 := y3;
 
-			Append(~List,[ x1, x2, y1, y2]);
+      Append(~List,[ x1, x2, y1, y2]);
 
                         a:=-b; b:=r;
-	          end while;
+            end while;
                 end for;
                 Append(~List, [1, 0, 0,  pi]);
           end if;
@@ -213,16 +210,8 @@ Hecke:=function(W,P)
   H:=[Act(W`spec,Matrix(MaximalOrder(W`field),2,2,[t[4],-t[2],-t[3],t[1]])) : t in T];
 
   HPB:=&+H;
-<<<<<<< HEAD
-<<<<<<< HEAD
   // forces compatibility, should always come back true
   tt:=IsIsomorphic(CoefficientRing(Parent(HPB)),NumberField(CoefficientRing(Domain(W`down))));
-=======
->>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
-=======
-  // forces compatibility, should always come back true
-  tt:=IsIsomorphic(CoefficientRing(Parent(HPB)),NumberField(CoefficientRing(Domain(W`down))));
->>>>>>> 9726bf3cd58d932c5d58afb9fa987fbd9bec1eb8
 
   if W`char ne 0 then
     HPB:=W`down(HPB);
@@ -344,7 +333,6 @@ end function;
 
 
 
-<<<<<<< HEAD
 OptimizeEigenvalues:=function(EVs)
   if Characteristic(Parent(EVs[1])) eq 0 then 
     F:=Parent(EVs[3][1]);
@@ -391,8 +379,6 @@ end function;
 
 
 
-=======
->>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 //
 // Given a list of commuting matrices and vals in the form <pol, multiplicity, eigs>, finds
 // a basis of simultaneous generalised eigenvectors.
@@ -476,11 +462,7 @@ GetPolVals:=function(W,HH,HP)
 
   EV_systems:=[**];
   for e in EVs do
-<<<<<<< HEAD
     Append(~EV_systems,OptimizeEigenvalues(<e[1],e[2],e[3]>));
-=======
-    Append(~EV_systems,<e[1],e[2],e[3]>);
->>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
   end for;
 
 
@@ -494,10 +476,10 @@ end function;
 detect_hnf:=function(J,M)
       N:=Norm(J);
       a:=M[1,1];  d:=M[1,2];
-	  b:=M[2,1];  c:=M[2,2];
-	  if (d eq 0) and (N eq a*c) and (b in [0..a-1]) then
-	     return 1;
-	  else
+    b:=M[2,1];  c:=M[2,2];
+    if (d eq 0) and (N eq a*c) and (b in [0..a-1]) then
+       return 1;
+    else
          return 0;
       end if;
 end function;
@@ -505,17 +487,17 @@ end function;
 HNF_basis:=function(J)
       N:=Norm(J);
       M:=BasisMatrix(J);
-	  Mt:=Matrix(Integers(),2,2,[M[1,2],M[1,1],M[2,2],M[2,1]]);
+    Mt:=Matrix(Integers(),2,2,[M[1,2],M[1,1],M[2,2],M[2,1]]);
       HN:=HermiteForm(Mt);
-	  H:=Matrix(Integers(),2,2,[HN[2,2],HN[2,1],HN[1,2],HN[1,1]]);
+    H:=Matrix(Integers(),2,2,[HN[2,2],HN[2,1],HN[1,2],HN[1,1]]);
       c:=H[2,2];  b:=H[2,1];   a:=H[1,1];
-	  if c lt 0 then
-	     c:=-c;   b:=-b;
-	  end if;
+    if c lt 0 then
+       c:=-c;   b:=-b;
+    end if;
 
-	  b:=(b mod a);
-	  assert 1 eq detect_hnf(J,Matrix(Integers(),2,2,[a,0,b,c]));
-	  return [Norm(J), b,c];
+    b:=(b mod a);
+    assert 1 eq detect_hnf(J,Matrix(Integers(),2,2,[a,0,b,c]));
+    return [Norm(J), b,c];
 end function;
 
 
