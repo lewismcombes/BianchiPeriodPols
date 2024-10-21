@@ -1,13 +1,17 @@
 
 _<x>:=PolynomialRing(Rationals());
 
+<<<<<<< HEAD
 K:=NumberField(x^2-x+3);
 ZK:=MaximalOrder(K);
 
+=======
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 F:=NumberField(x^2-81829);
 ZF:=MaximalOrder(F);
 
 
+<<<<<<< HEAD
 // generators of the primes of K
 gens:=[
     [0, 1],
@@ -186,6 +190,8 @@ gens:=[
 ];
 
 
+=======
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 
 EVs_E12:=[
     177148,
@@ -898,6 +904,7 @@ EVs_F2:=[
 ];
 
 
+<<<<<<< HEAD
 print "";
 // we first check the base change congruence modulo 691
 print "checking congruence between Delta and E_12";
@@ -906,10 +913,16 @@ LDE:=[(EVs_Delta[i] - EVs_E12[i]) : i in [1..173]];
 &and [ u mod 691 eq 0 : u in LDE];
 print "(see variable LDE for differences of eigenvalues)";
 print "";
+=======
+
+// we first check the base change congruence modulo 691
+&and [(EVs_Delta[i] - EVs_E12[i]) mod 691 eq 0 : i in [1..173]];
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 
 
 // next we check the congruences between the genuine forms and E_12 modulo 173
 P173:=Factorization(173*ZF)[1,1];
+<<<<<<< HEAD
 print "checking congruence between F1 and E_12";
 print "is tau(p) - a(p) = 0 (mod 173) for all primes of K of norm < 1000?";
 LF1E:=[(ZF!EVs_F1[i] - EVs_E12[i]) : i in [1..173]];
@@ -1100,5 +1113,16 @@ if &and [diff_Delta_F2[i] eq 0 : i in [1..121]] then
 else
   print "something has gone wrong. polynomials are not congruent";
 end if;
+=======
+&and [(ZF!EVs_F1[i] - EVs_E12[i]) mod P173 eq 0 : i in [1..173]];
+&and [(ZF!EVs_F2[i] - EVs_E12[i]) mod P173 eq 0 : i in [1..173]];
+
+// finally we check the congruences between the genuine forms and Delta modulo 43
+P43:=Factorization(43*ZF)[1,1];
+&and [(ZF!EVs_F1[i] - EVs_Delta[i]) mod P43 eq 0 : i in [1..173]];
+&and [(ZF!EVs_F2[i] - EVs_Delta[i]) mod P43 eq 0 : i in [1..173]];
+
+
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 
 //

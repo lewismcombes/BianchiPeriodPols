@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 // finds the smallest field over which a given matrix has all its eigenvalues 
 // used when the matrix is defined over some number field 
@@ -101,6 +102,8 @@ MakeHeckeFieldSmall:=function(list : Optimize:=false)
 end function;
 
 
+=======
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 //
 // Haluk's code for computing Heilbronn matrices
 // previously used magma's QuadraticField functionality
@@ -210,8 +213,11 @@ Hecke:=function(W,P)
   H:=[Act(W`spec,Matrix(MaximalOrder(W`field),2,2,[t[4],-t[2],-t[3],t[1]])) : t in T];
 
   HPB:=&+H;
+<<<<<<< HEAD
   // forces compatibility, should always come back true
   tt:=IsIsomorphic(CoefficientRing(Parent(HPB)),NumberField(CoefficientRing(Domain(W`down))));
+=======
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 
   if W`char ne 0 then
     HPB:=W`down(HPB);
@@ -333,6 +339,7 @@ end function;
 
 
 
+<<<<<<< HEAD
 OptimizeEigenvalues:=function(EVs)
   if Characteristic(Parent(EVs[1])) eq 0 then 
     F:=Parent(EVs[3][1]);
@@ -379,6 +386,8 @@ end function;
 
 
 
+=======
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 //
 // Given a list of commuting matrices and vals in the form <pol, multiplicity, eigs>, finds
 // a basis of simultaneous generalised eigenvectors.
@@ -462,7 +471,11 @@ GetPolVals:=function(W,HH,HP)
 
   EV_systems:=[**];
   for e in EVs do
+<<<<<<< HEAD
     Append(~EV_systems,OptimizeEigenvalues(<e[1],e[2],e[3]>));
+=======
+    Append(~EV_systems,<e[1],e[2],e[3]>);
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
   end for;
 
 

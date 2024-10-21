@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // does the same thing as BaseRing which doesn't work for dirichlet chars over 
 // number fields 
 ImageField:=function(level,chi)
@@ -16,6 +17,8 @@ ImageField:=function(level,chi)
 end function;
 
 
+=======
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 //
 // Gives the action of M on the projective line P^1(ZK/J).
 //

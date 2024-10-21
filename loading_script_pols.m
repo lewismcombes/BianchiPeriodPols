@@ -1,6 +1,10 @@
 
 
+<<<<<<< HEAD
 AttachSpec("../../ArtinAlgebras/ArtinAlgebras.spec");
+=======
+AttachSpec("ArtinAlgebras/ArtinAlgebras.spec");
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 
 load "ProjAction.m";
 load "WeightAction.m";
@@ -9,18 +13,30 @@ load "Hecke.m";
 load "PeriodPols.m";
 
 
+<<<<<<< HEAD
 d:=2;
 
 level:=[-7,4];
 weight:=[0,0,0,0];
+=======
+d:=11;
+
+level:=[1,0];
+weight:=[10, 10, 0, 0];
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 char:=0;
 HB:=30;
 chi:=1;
 type:="GL";
+<<<<<<< HEAD
 optimizeHF:=true;
 
 
 print "computing space of period polynomials...";
+=======
+
+
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 time W:=PolSpace(d,level,weight,char,type,chi);
 
 K:=W`field;
@@ -42,6 +58,7 @@ else
   HNF:=[HNF_basis(J): J in HP];
   ParallelSort(~HNF,~HP);
 
+<<<<<<< HEAD
   print "computing Hecke matrices...";
   HH,HHB:=GetHeckeMatrices(W,HP);
   HH,F:=MakeHeckeFieldSmall(HH : Optimize:=optimizeHF);
@@ -49,6 +66,11 @@ else
   EV_systems,pol_vals:=GetPolVals(W,HH,HP);
 
   print "found the following eigenvalue systems:";
+=======
+  HH,HHB:=GetHeckeMatrices(W,HP);
+  EV_systems,pol_vals:=GetPolVals(W,HH,HP);
+
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
   EV_systems;
 end if;
 
