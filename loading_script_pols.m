@@ -14,6 +14,7 @@ load "PeriodPols.m";
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 d:=2;
 
 level:=[-7,4];
@@ -30,6 +31,16 @@ chi:=1;
 type:="GL";
 <<<<<<< HEAD
 optimizeHF:=true;
+=======
+d:=1;
+
+level:=[4,-7];
+weight:=[0,0, 0, 0];
+char:=0;
+HB:=30;
+chi:=1;
+type:="SL";
+>>>>>>> 9726bf3cd58d932c5d58afb9fa987fbd9bec1eb8
 
 
 print "computing space of period polynomials...";

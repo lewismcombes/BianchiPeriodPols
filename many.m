@@ -26,7 +26,10 @@ for a,b,c,e in [0..4] do
     chi:=1;
     HB:=30;
     type:="GL";
+<<<<<<< HEAD
     optimizeHF:=true;
+=======
+>>>>>>> 9726bf3cd58d932c5d58afb9fa987fbd9bec1eb8
 
 
     W:=PolSpace(d,level,weight,char,type,chi);
@@ -52,7 +55,10 @@ for a,b,c,e in [0..4] do
 
       print "computing Hecke matrices...";
       HH,HHB:=GetHeckeMatrices(W,HP);
+<<<<<<< HEAD
       HH,F:=MakeHeckeFieldSmall(HH : Optimize:=optimizeHF);
+=======
+>>>>>>> 9726bf3cd58d932c5d58afb9fa987fbd9bec1eb8
       print "computing eigenvalue systems and algebraic eigen-polynomials...";
       EV_systems,pol_vals:=GetPolVals(W,HH,HP);
 

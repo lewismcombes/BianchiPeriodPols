@@ -10,6 +10,7 @@ load "H2.m";
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 d:=1;
 
 level:=[1,-7];
@@ -18,12 +19,19 @@ HB:=30;
 chi:=11;
 =======
 d:=11;
+=======
+d:=1;
+>>>>>>> 9726bf3cd58d932c5d58afb9fa987fbd9bec1eb8
 
-level:=[1,0];
-weight:=[10, 10, 0, 0];
+level:=[1,-7];
+weight:=[0, 0, 0, 0];
 HB:=30;
+<<<<<<< HEAD
 chi:=1;
 >>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
+=======
+chi:=11;
+>>>>>>> 9726bf3cd58d932c5d58afb9fa987fbd9bec1eb8
 
 K:=QuadFld(d);
 ZK:=MaximalOrder(K);
@@ -40,11 +48,16 @@ SpecData:= recformat <
   PL                : SetIndx,
   r                 : UserProgram,
 <<<<<<< HEAD
+<<<<<<< HEAD
   char_field        : FldNum,
   field        : FldNum >;
 =======
   field             : FldNum >;
 >>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
+=======
+  char_field        : FldNum,
+  field        : FldNum >;
+>>>>>>> 9726bf3cd58d932c5d58afb9fa987fbd9bec1eb8
 
 
 spec:=rec<SpecData | d:=d,
@@ -54,11 +67,16 @@ spec:=rec<SpecData | d:=d,
                      PL:=PL,
                      r:=r,
 <<<<<<< HEAD
+<<<<<<< HEAD
                      char_field:=Compositum(Codomain(chi),K),
                      field:=K >;
 =======
                      field:=Compositum(Codomain(chi),K) >;
 >>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
+=======
+                     char_field:=Compositum(Codomain(chi),K),
+                     field:=K >;
+>>>>>>> 9726bf3cd58d932c5d58afb9fa987fbd9bec1eb8
 
 
 
