@@ -1,13 +1,26 @@
 
 _<x>:=PolynomialRing(Rationals());
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 K:=NumberField(x^2-x+3);
 ZK:=MaximalOrder(K);
 
+=======
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
+=======
+K:=NumberField(x^2-x+3);
+ZK:=MaximalOrder(K);
+
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
 F:=NumberField(x^2-81829);
 ZF:=MaximalOrder(F);
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
 // generators of the primes of K
 gens:=[
     [0, 1],
@@ -186,6 +199,11 @@ gens:=[
 ];
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
+=======
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
 
 EVs_E12:=[
     177148,
@@ -898,6 +916,8 @@ EVs_F2:=[
 ];
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 print "";
 // we first check the base change congruence modulo 691
 print "checking congruence between Delta and E_12";
@@ -906,10 +926,29 @@ LDE:=[(EVs_Delta[i] - EVs_E12[i]) : i in [1..173]];
 &and [ u mod 691 eq 0 : u in LDE];
 print "(see variable LDE for differences of eigenvalues)";
 print "";
+=======
+
+// we first check the base change congruence modulo 691
+&and [(EVs_Delta[i] - EVs_E12[i]) mod 691 eq 0 : i in [1..173]];
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
+=======
+print "";
+// we first check the base change congruence modulo 691
+print "checking congruence between Delta and E_12";
+print "is tau(p) - e(p) = 0 (mod 691) for all primes of K of norm < 1000?";
+LDE:=[(EVs_Delta[i] - EVs_E12[i]) : i in [1..173]];
+&and [ u mod 691 eq 0 : u in LDE];
+print "(see variable LDE for differences of eigenvalues)";
+print "";
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
 
 
 // next we check the congruences between the genuine forms and E_12 modulo 173
 P173:=Factorization(173*ZF)[1,1];
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
 print "checking congruence between F1 and E_12";
 print "is tau(p) - a(p) = 0 (mod 173) for all primes of K of norm < 1000?";
 LF1E:=[(ZF!EVs_F1[i] - EVs_E12[i]) : i in [1..173]];
@@ -925,6 +964,7 @@ LF2E:=[(ZF!EVs_F2[i] - EVs_E12[i]) : i in [1..173]];
 print "(see variable LF2E for differences of eigenvalues)";
 print "";
 
+<<<<<<< HEAD
 
 // finally we check the congruences between the genuine forms and Delta modulo 43
 P43:=Factorization(43*ZF)[1,1];
@@ -1100,5 +1140,189 @@ if &and [diff_Delta_F2[i] eq 0 : i in [1..121]] then
 else
   print "something has gone wrong. polynomials are not congruent";
 end if;
+=======
+&and [(ZF!EVs_F1[i] - EVs_E12[i]) mod P173 eq 0 : i in [1..173]];
+&and [(ZF!EVs_F2[i] - EVs_E12[i]) mod P173 eq 0 : i in [1..173]];
+=======
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
+
+// finally we check the congruences between the genuine forms and Delta modulo 43
+P43:=Factorization(43*ZF)[1,1];
+print "checking congruence between Delta and F1";
+print "is tau(p) - a(p) = 0 (mod 43) for all primes of K of norm < 1000?";
+LDF1:=[(ZF!EVs_F1[i] - EVs_Delta[i]) : i in [1..173]];
+&and [ u mod P43 eq 0 : u in LDF1];
+print "(see variable LDF1 for differences of eigenvalues)";
+print "";
+
+print "checking congruence between Delta and F2";
+print "is tau(p) - a(p) = 0 (mod 43) for all primes of K of norm < 1000?";
+LDF2:=[(ZF!EVs_F2[i] - EVs_Delta[i]) : i in [1..173]];
+&and [ u mod P43 eq 0 : u in LDF2];
+print "(see variable LDF2 for differences of eigenvalues)";
+print "";
+print "";
+print "";
+
+
+print "now we check for congruences of period polynomials.";
+
+load "Q11_periodPols.m";
+
+R_Delta:=31452624*Vector(r_Delta);
+R_E12:=Vector(r_E12);
+R_F1:=8131200*Vector(r_F1);
+R_F2:=8131200*Vector(r_F2);
+
+P691:=Factorization(691*ZK)[1,1];
+Q691:=quo<ZK|P691>;
+
+print "===============================";
+print " first: Delta = E_12 (mod 691)";
+print "===============================";
+
+print "integrally scaled period polynomial of Delta:";
+print R_Delta;
+print "checking all of the coefficients of R_Delta are corpime and integers...";
+print "GCD = " cat Sprint(GCD([Integers()!R_Delta[i] : i in [1..121]]));
+print "are all the coefficients integers?";
+print &and [R_Delta[i] in Integers() : i in [1..121]];
+
+print "";
+
+print "difference of integral r_Delta and 377*r_E12 (mod 691):";
+diff_Delta_E12:=ChangeRing(R_Delta,Q691) - 377*Vector(R_E12);
+print diff_Delta_E12;
+
+if &and [diff_Delta_E12[i] eq 0 : i in [1..121]] then
+  print "hence the two polynomials are congruent mod 691.";
+else
+  print "something has gone wrong. polynomials are not congruent";
+end if;
+
+
+print "";
+print "";
+
+
+print "============================";
+print " next: F_1 = E_12 (mod 173)";
+print "============================";
+
+P173:=Factorization(173*ZFF)[1,1];
+Q173:=quo<ZFF|P173>;
+
+
+print "integrally scaled period polynomial of F_1:";
+print R_F1;
+print "checking all of the coefficients of R_F1 are corpime and integers...";
+
+ideals :=[ideal<ZFF|ZFF!R_F1[i]> : i in [1..121]];
+D:=GCD(ideals[1],ideals[2]);
+for i in [3..#ideals] do
+  D:=GCD(D,ideals[i]);
+end for;
+
+
+print "GCD = " cat Sprint(D);
+print "Norm of GCD = " cat Sprint(Norm(D));
+print "are all the coefficients integers?";
+print &and [R_F1[i] in ZFF : i in [1..121]];
+
+print "";
+
+print "difference of integral r_F1 and 27*r_E12 (mod 173):";
+diff_F1_E12:=ChangeRing(R_F1,Q173) - 27*Vector(R_E12);
+print diff_F1_E12;
+if &and [diff_F1_E12[i] eq 0 : i in [1..121]] then
+  print "hence the two polynomials are congruent mod 173.";
+else
+  print "something has gone wrong. polynomials are not congruent";
+end if;
+
+
+
+print "";
+print "";
+
+
+print "============================";
+print " next: F_2 = E_12 (mod 173)";
+print "============================";
+
+print "integrally scaled period polynomial of F_2:";
+print R_F2;
+print "checking all of the coefficients of R_F2 are corpime and integers...";
+
+ideals :=[ideal<ZFF|ZFF!R_F2[i]> : i in [1..121]];
+D:=GCD(ideals[1],ideals[2]);
+for i in [3..#ideals] do
+  D:=GCD(D,ideals[i]);
+end for;
+
+
+print "GCD = " cat Sprint(D);
+print "Norm of GCD = " cat Sprint(Norm(D));
+print "are all the coefficients integers?";
+print &and [R_F2[i] in ZFF : i in [1..121]];
+
+print "";
+
+print "difference of integral r_F2 and 27*r_E12 (mod 173):";
+diff_F2_E12:=ChangeRing(R_F2,Q173) - 27*Vector(R_E12);
+print diff_F2_E12;
+if &and [diff_F2_E12[i] eq 0 : i in [1..121]] then
+  print "hence the two polynomials are congruent mod 173.";
+else
+  print "something has gone wrong. polynomials are not congruent";
+end if;
+
+
+
+print "";
+print "";
+
+
+print "============================";
+print " next: F_1 = Delta (mod 43)";
+print "============================";
+
+
+P43:=Factorization(43*ZFF)[1,1];
+Q43:=quo<ZFF|P43>;
+
+
+print "difference of R_F1 and 5*R_Delta (mod 43):";
+diff_Delta_F1:=ChangeRing(R_Delta-5*R_F1,Q43);
+print diff_Delta_F1;
+if &and [diff_Delta_F1[i] eq 0 : i in [1..121]] then
+  print "hence the two polynomials are congruent mod 43.";
+else
+  print "something has gone wrong. polynomials are not congruent";
+end if;
+
+
+
+print "";
+print "";
+
+
+print "===============================";
+print " finally: F_2 = Delta (mod 43)";
+print "===============================";
+
+
+<<<<<<< HEAD
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
+=======
+print "difference of R_F2 and 5*R_Delta (mod 43):";
+diff_Delta_F2:=ChangeRing(R_Delta-5*R_F1,Q43);
+print diff_Delta_F2;
+if &and [diff_Delta_F2[i] eq 0 : i in [1..121]] then
+  print "hence the two polynomials are congruent mod 43.";
+else
+  print "something has gone wrong. polynomials are not congruent";
+end if;
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
 
 //

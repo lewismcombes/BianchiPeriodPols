@@ -177,7 +177,15 @@ PolSpace:=function(d,level,weight,char,type,chi)
   PL,r:=ProjectiveLine(quo<ZK|level>);
   // for compatibility reasons these lines needs to be here
   // otherwise ProjActionChi can't evaluate chi at the
+<<<<<<< HEAD
+<<<<<<< HEAD
   // scalar given by r.
+=======
+  // scalar given by r. 
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
+=======
+  // scalar given by r.
+>>>>>>> 9726bf3cd58d932c5d58afb9fa987fbd9bec1eb8
   level:=Parent(1*CoefficientRing(PL[1]))!level;
   ZK:=Order(level);
   K:=NumberField(ZK);
@@ -192,7 +200,11 @@ PolSpace:=function(d,level,weight,char,type,chi)
                        chi:=chi,
                        PL:=PL,
                        r:=r,
+<<<<<<< HEAD
                        field:=Compositum(ImageField(level,chi),K) >;
+=======
+                       field:=Compositum(Codomain(chi),K) >;
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
 
 
   M:=StandardMats(spec);
@@ -200,9 +212,21 @@ PolSpace:=function(d,level,weight,char,type,chi)
   // in characteristic p we want to send all of our matrices that give the action
   // to the residue class field of a prime over p*ZK. it doesn't really matter which
   if char ne 0 then
+<<<<<<< HEAD
+<<<<<<< HEAD
     KK:=Compositum(BaseRing(M[1]),Codomain(chi));
     ZKK:=MaximalOrder(KK);
     //M:=[ChangeRing(m,ZKK) : m in M];
+=======
+    KK:=Compositum(K,Codomain(chi));
+    ZKK:=MaximalOrder(KK);
+    M:=[ChangeRing(m,ZKK) : m in M];
+>>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
+=======
+    KK:=Compositum(BaseRing(M[1]),Codomain(chi));
+    ZKK:=MaximalOrder(KK);
+    //M:=[ChangeRing(m,ZKK) : m in M];
+>>>>>>> 9726bf3cd58d932c5d58afb9fa987fbd9bec1eb8
     F,down:=ResidueClassField(Factorization(char*ZKK)[1,1]);
   else
     down:=IdentityHomomorphism(Parent(M[1]));
