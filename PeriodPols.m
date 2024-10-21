@@ -10,6 +10,7 @@ PeriodPol:=function(W,vec : ind:=W`id_index)
   if not assigned ind then
     ind:=W`id_index;
   end if;
+  
   weight:=W`weight;
   k:=weight[1];
   l:=weight[2];

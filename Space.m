@@ -195,7 +195,6 @@ PolSpace:=function(d,level,weight,char,type,chi)
                        field:=Compositum(ImageField(level,chi),K) >;
 
 
-
   M:=StandardMats(spec);
 
   // in characteristic p we want to send all of our matrices that give the action

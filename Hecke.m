@@ -3,7 +3,7 @@
 // used when the matrix is defined over some number field 
 SmallestFieldNF:=function(mat)
   F:=BaseRing(mat);
-  Q,m:=sub<F|[F!1]>;
+  Q,m:=sub< F|[F!1] >;
   S:=Subfields(F) cat [<QNF(),m>];
   pol:=CharacteristicPolynomial(mat);
 

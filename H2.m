@@ -35,7 +35,7 @@ H2quo:=function(spec)
     TA:=Act(spec,A);
     TS:=Act(spec,S);
     TU:=Act(spec,U);
-    TTzi:=Act(spec,Tz^-1);
+    TTzi:=Act(spec,Tz^(-1));
     TJ:=Act(spec,J);
 
     KER:=Kernel(1-TA)*(1-TTzi) + Kernel(1-TS) + Kernel(1-TU) + Kernel(1+TJ);

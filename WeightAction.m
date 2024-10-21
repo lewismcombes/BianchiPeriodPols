@@ -24,7 +24,6 @@ WeightMat:=function(spec,mat);
     return Determinant(T)^d*ST;
   end function;
 
-
   k:=weight[1];
   l:=weight[2];
   a:=weight[3];

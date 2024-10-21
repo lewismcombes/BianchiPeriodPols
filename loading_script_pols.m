@@ -11,7 +11,7 @@ load "PeriodPols.m";
 
 d:=2;
 
-level:=[-7,4];
+level:=[7,4];
 weight:=[0,0,0,0];
 char:=0;
 HB:=30;

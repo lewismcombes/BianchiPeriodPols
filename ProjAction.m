@@ -111,6 +111,7 @@ ProjMatChi:=function(spec,M)
 
   l:=#PL;
   Mat:=[];
+  
   for i in [1..l] do
     new_row:=[];
     for j in [1..l] do

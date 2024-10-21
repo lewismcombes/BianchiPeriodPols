@@ -56,6 +56,7 @@ for a,b,c,e in [0..4] do
       print "computing eigenvalue systems and algebraic eigen-polynomials...";
       EV_systems,pol_vals:=GetPolVals(W,HH,HP);
 
+
       print "found the following eigenvalue systems:";
       EV_systems;
       chi;

@@ -19,7 +19,7 @@ chi:=11;
 K:=QuadFld(d);
 ZK:=MaximalOrder(K);
 level:=(K!level)*ZK;
-PL,r:=ProjectiveLine(quo<ZK|level>);
+PL,r:=ProjectiveLine(quo< ZK|level >);
 chi:=Elements(DirichletGroup(level))[chi];
 
 
