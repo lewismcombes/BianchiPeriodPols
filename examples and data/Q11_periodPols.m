@@ -6,11 +6,16 @@
 
 _<x>:=PolynomialRing(Rationals());
 <<<<<<< HEAD
+<<<<<<< HEAD
 FF<a>:=NumberField(x^4 + 3725*x^2 + 3448449);
 ZFF:=MaximalOrder(FF);
 =======
 F<a>:=NumberField(x^4 + 3725*x^2 + 3448449);
 >>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
+=======
+FF<a>:=NumberField(x^4 + 3725*x^2 + 3448449);
+ZFF:=MaximalOrder(FF);
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
 
 
 // the Eisenstein series E_12

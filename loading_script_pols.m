@@ -36,7 +36,11 @@ print "computing space of period polynomials...";
 =======
 
 
+<<<<<<< HEAD
 >>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
+=======
+print "computing space of period polynomials...";
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
 time W:=PolSpace(d,level,weight,char,type,chi);
 
 K:=W`field;
@@ -59,6 +63,7 @@ else
   ParallelSort(~HNF,~HP);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   print "computing Hecke matrices...";
   HH,HHB:=GetHeckeMatrices(W,HP);
   HH,F:=MakeHeckeFieldSmall(HH : Optimize:=optimizeHF);
@@ -67,10 +72,18 @@ else
 
   print "found the following eigenvalue systems:";
 =======
+=======
+  print "computing Hecke matrices...";
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
   HH,HHB:=GetHeckeMatrices(W,HP);
+  print "computing eigenvalue systems and algebraic eigen-polynomials...";
   EV_systems,pol_vals:=GetPolVals(W,HH,HP);
 
+<<<<<<< HEAD
 >>>>>>> 349a8eb58628495365844c9a2a6782c577e390d4
+=======
+  print "found the following eigenvalue systems:";
+>>>>>>> f6cc33ad9b6bf601e9db3ff5120b8e427f4ef87a
   EV_systems;
 end if;
 
